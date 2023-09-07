@@ -1,7 +1,7 @@
 # CIL: Code Indexer Loop
 
 [![PyPI version](https://badge.fury.io/py/cil.svg)](https://pypi.org/project/cil/)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache2-yellow.svg)](https://opensource.org/license/apache-2-0/)
+[![License](https://img.shields.io/github/license/definitive-io/cil)](LICENSE)
 [![Forks](https://img.shields.io/github/forks/definitive-io/cil)](https://github.com/definitive-io/cil/network)
 [![Stars](https://img.shields.io/github/stars/definitive-io/cil)](https://github.com/definitive-io/cil/stargazers)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com?style=social&label=Follow%20%40DefinitiveIO)](https://twitter.com/definitiveio)
