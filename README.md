@@ -12,6 +12,8 @@
 
 It uses the useful indexing utilities of the **LlamaIndex** library and the multi-language **tree-sitter** library to parse the code from many popular programming languages. **tiktoken** is used to count tokens in a code snippet and **LangChain** to obtain embeddings (defaults to **OpenAI**'s `text-embedding-ada-002`) and store them in an embedded **ChromaDB** vector database. It uses **watchdog** for continuous updating of the index based on file system events.
 
+Read the [launch blog post](https://www.definitive.io/blog/open-sourcing-code-indexer-loop) for more details about why we've built this!
+
 ## Installation:
 Use `pip` to install Code Indexer Loop from PyPI.
 ```
