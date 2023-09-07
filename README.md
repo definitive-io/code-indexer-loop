@@ -17,7 +17,7 @@ Read the [launch blog post](https://www.definitive.io/blog/open-sourcing-code-in
 ## Installation:
 Use `pip` to install Code Indexer Loop from PyPI.
 ```
-pip install code_indexer_loop
+pip install code-indexer-loop
 ```
 
 ## Usage:
