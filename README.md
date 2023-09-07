@@ -35,7 +35,7 @@ query = "pandas"
 print(indexer.query(query)[0:30])
 ```
 
-Note: make sure tge `OPENAI_API_KEY` environment variable is set. This is needed for generating the embeddings.
+Note: make sure the `OPENAI_API_KEY` environment variable is set. This is needed for generating the embeddings.
 
 You can also use `indexer.query_nodes` to get the nodes of a query or `indexer.query_documents` to receive the entire source code files.
 
