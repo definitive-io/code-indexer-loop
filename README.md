@@ -1,9 +1,9 @@
 # Code Indexer Loop
 
-[![PyPI version](https://badge.fury.io/py/code-indexer-loop.svg)](https://pypi.org/project/code-indexer-loop/)
-[![License](https://img.shields.io/github/license/definitive-io/code-indexer-loop)](LICENSE)
-[![Forks](https://img.shields.io/github/forks/definitive-io/code-indexer-loop)](https://github.com/definitive-io/code-indexer-loop/network)
-[![Stars](https://img.shields.io/github/stars/definitive-io/code-indexer-loop)](https://github.com/definitive-io/code-indexer-loop/stargazers)
+[![PyPI version](https://badge.fury.io/py/code-indexer-loop.svg?v=2)](https://pypi.org/project/code-indexer-loop/)
+[![License](https://img.shields.io/github/license/definitive-io/code-indexer-loop?v=2)](LICENSE)
+[![Forks](https://img.shields.io/github/forks/definitive-io/code-indexer-loop?v=2)](https://github.com/definitive-io/code-indexer-loop/network)
+[![Stars](https://img.shields.io/github/stars/definitive-io/code-indexer-loop?v=2)](https://github.com/definitive-io/code-indexer-loop/stargazers)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com?style=social&label=Follow%20%40DefinitiveIO)](https://twitter.com/definitiveio)
 [![Discord](https://dcbadge.vercel.app/api/server/CPJJfq87Vx?compact=true&style=flat)](https://discord.gg/CPJJfq87Vx)
 
