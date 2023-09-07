@@ -1,0 +1,17 @@
+SELECT
+  Books.BookID,
+  Books.Title,
+  Authors.AuthorName,
+  Orders.OrderDate
+FROM
+  Books
+JOIN
+  Authors ON Books.AuthorID = Authors.AuthorID
+JOIN
+  Orders ON Books.BookID = Orders.BookID
+WHERE
+  Orders.OrderDate >= '2022-01-01'
+  AND Orders.OrderDate <= '2022-12-31'
+  AND Authors.AuthorName LIKE '%John%'
+ORDER BY
+  Orders.OrderDate DESC;
