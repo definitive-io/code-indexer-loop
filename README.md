@@ -37,8 +37,8 @@ You can also use `indexer.query_nodes` to get the nodes of a query or `indexer.q
 
 Note that if you edit any of the source code files in the `src_dir` it will efficiently re-index those files using `watchdog` and an `md5` based caching mechanism. This results in up-to-date embeddings every time you query the index.
 
-## tree-sitter
-Using `tree-sitter` for parsing, the chunks are broken only at valid node-level string positions in the source file. This avoids breaking up e.g. function and class definitions.
+## Examples
+Check out the [basic_usage](examples/basic_usage.ipynb) notebook for a quick overview of the API.
 
 ## Token limits
 You can configure token limits for the chunks through the CodeIndexer constructor:
@@ -58,7 +58,10 @@ Note you can choose whether the `max_chunk_tokens` is enforced. If it is, it wil
 
 The `coalesce` argument controls the limit of combining smaller chunks into single chunks to avoid having many very small chunks. The unit for `coalesce` is also tokens.
 
-## Supported languages:
+## tree-sitter
+Using `tree-sitter` for parsing, the chunks are broken only at valid node-level string positions in the source file. This avoids breaking up e.g. function and class definitions.
+
+### Supported languages:
 C, C++, C#, Go, Haskell, Java, Julia, JavaScript, PHP, Python, Ruby, Rust, Scala, Swift, SQL, TypeScript
 
 Note, we're mainly testing Python support. Use other languages at your own peril.
@@ -68,9 +71,6 @@ Pull requests are welcome. Please make sure to update tests as appropriate. Use 
 
 ### Tests
 Run the unit tests by invoking `pytest` in the root.
-
-## Examples
-Check out the [basic_usage](examples/basic_usage.ipynb) notebook for a quick overview of the API.
 
 ## License
 Please see the LICENSE file provided with the source code.
