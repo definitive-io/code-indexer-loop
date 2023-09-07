@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from cil.code_splitter import (CodeSplitter, MaxChunkLengthExceededError,
+from code_indexer_loop.code_splitter import (CodeSplitter, MaxChunkLengthExceededError,
                                TokenCounter)
 
 THIS_FILE_DIR = os.path.dirname(os.path.realpath(__file__))

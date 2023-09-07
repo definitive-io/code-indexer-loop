@@ -1,12 +1,13 @@
 all: clean build publish
 
 build:
-	python setup.py sdist bdist_wheel
+	flit build
 
 clean:
-	rm -rf build dist my_project.egg-info
+	rm -rf dist
+	rm -rf build
 
 publish: build
-	twine upload dist/*
+	flit publish
 
 .PHONY: build clean publish all

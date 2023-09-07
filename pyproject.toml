@@ -1,6 +1,10 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.8.0,<4"]
+
 [project]
-name = "cil"
-description = "CIL: Code Indexer Loop"
+name = "code-indexer-loop"
+description = "Code Indexer Loop"
 authors = [
     {name = "Rick Lamers", email = "rick@definitive.io"}
 ]
@@ -27,9 +31,7 @@ dev = [
     "autoflake ~=2.2.0",
     "ruff ~=0.0.284",
     "pytest ~=7.4.1",
-    "twine ~=4.0.2",
-    "setuptools",
-    "wheel",
+    "flit >=3.8.0,<4",
 ]
 test = [
     "pytest-cov ~=3.0.0",

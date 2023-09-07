@@ -11,9 +11,9 @@ from llama_index.vector_stores import ChromaVectorStore
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
-from cil.code_splitter import CodeSplitter
-from cil.constants import EXTENSION_TO_TREE_SITTER_LANGUAGE
-from cil.utils import hash_md5
+from code_indexer_loop.code_splitter import CodeSplitter
+from code_indexer_loop.constants import EXTENSION_TO_TREE_SITTER_LANGUAGE
+from code_indexer_loop.utils import hash_md5
 
 
 class CodeIndexer:
