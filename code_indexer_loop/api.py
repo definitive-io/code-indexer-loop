@@ -51,14 +51,14 @@ class CodeIndexer:
 
     def query(self, query: str, k=10) -> str:
         return "\n".join(
-            [node_with_score.node.text for node_with_score in self.index.as_retriever(k=k).retrieve(query)]
+            [node_with_score.node.text for node_with_score in self.index.as_retriever(similarity_top_k=k).retrieve(query)]
         )
 
     def query_nodes(self, query: str, k=10) -> list[NodeWithScore]:
-        return self.index.as_retriever(k=k).retrieve(query)
+        return self.index.as_retriever(similarity_top_k=k).retrieve(query)
 
     def query_documents(self, query: str, k=10) -> list[dict[str, str]]:
-        nodes = self.index.as_retriever(k=k).retrieve(query)
+        nodes = self.index.as_retriever(similarity_top_k=k).retrieve(query)
         files = [node_with_score.node.metadata["file"] for node_with_score in nodes]
         # Deduplicate files, preserving order
         files = list(dict.fromkeys(files))
