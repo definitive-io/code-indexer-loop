@@ -6,7 +6,7 @@ import chromadb
 from langchain.embeddings.openai import OpenAIEmbeddings
 from llama_index import ServiceContext, VectorStoreIndex
 from llama_index.embeddings import LangchainEmbedding
-from llama_index.schema import TextNode
+from llama_index.schema import NodeWithScore, TextNode
 from llama_index.vector_stores import ChromaVectorStore
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
@@ -54,7 +54,7 @@ class CodeIndexer:
             [node_with_score.node.text for node_with_score in self.index.as_retriever(k=k).retrieve(query)]
         )
 
-    def query_nodes(self, query: str, k=10) -> list[TextNode]:
+    def query_nodes(self, query: str, k=10) -> list[NodeWithScore]:
         return self.index.as_retriever(k=k).retrieve(query)
 
     def query_documents(self, query: str, k=10) -> list[dict[str, str]]:

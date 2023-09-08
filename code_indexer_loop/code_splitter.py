@@ -12,7 +12,6 @@ from dataclasses import dataclass
 from typing import List, Optional, Union
 
 import tiktoken
-from tiktoken.model import MODEL_TO_ENCODING
 from tree_sitter import Node
 
 
@@ -71,11 +70,11 @@ class TokenCounter:
         if model is None:
             model = self.default_model
 
-        if model not in MODEL_TO_ENCODING.keys():
-            raise ValueError(f"Model {model} not supported.")
-
         if model not in self.initialized_models:
-            self.initialized_models[model] = tiktoken.encoding_for_model(model)
+            try:
+                self.initialized_models[model] = tiktoken.encoding_for_model(model)
+            except KeyError:
+                raise KeyError(f"Model {model} not supported.")
 
         return len(self.initialized_models[model].encode(text, disallowed_special=()))
 

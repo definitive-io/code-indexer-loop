@@ -2,8 +2,9 @@ import os
 
 import pytest
 
-from code_indexer_loop.code_splitter import (CodeSplitter, MaxChunkLengthExceededError,
-                               TokenCounter)
+from code_indexer_loop.code_splitter import (CodeSplitter,
+                                             MaxChunkLengthExceededError,
+                                             TokenCounter)
 
 THIS_FILE_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -15,6 +16,17 @@ def create_code_splitter(language="python", target_chunk_tokens=5, max_chunk_tok
         max_chunk_tokens=max_chunk_tokens,
         enforce_max_chunk_tokens=enforce_max_chunk_tokens,
         token_model="gpt-4",
+        coalesce=50,
+    )
+
+
+def test_code_splitter_prefix_model():
+    CodeSplitter(
+        language="python",
+        target_chunk_tokens=10,
+        max_chunk_tokens=10,
+        enforce_max_chunk_tokens=True,
+        token_model="gpt-4-32k-0613",
         coalesce=50,
     )
 
