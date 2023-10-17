@@ -1,0 +1,27 @@
+#####################################
+#       DO NOT EDIT DIRECTLY.       #
+# This file is managed by Terraform #
+#####################################
+
+on: [pull_request]
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    name: Detect Secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout full history to make .gitleaksignore work like it does locally
+
+      - name: GitLeaks
+        uses: gacts/gitleaks@v1 # Action page: <https://github.com/gacts/gitleaks>
+
+      - name: Add Failure Instructions to Pull Request
+        if: ${{ failure() }}
+        uses: thollander/actions-comment-pull-request@v1 # Action page: <https://github.com/thollander/actions-comment-pull-request>
+        with:
+          message: |
+            :warning: A secret was detected :warning:
+            Follow instructions in [Notion](https://www.notion.so/definitive-io/GitHub-Secret-Prevention-97986fd7ae9f45dd8703a1e42f7b07f8#027d1f9cd2544a0798505a1817dfe3df) to resolve.
