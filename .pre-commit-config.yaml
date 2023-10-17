@@ -1,0 +1,25 @@
+#####################################
+#       DO NOT EDIT DIRECTLY.       #
+# This file is managed by Terraform #
+#####################################
+
+# There are many pre-built hooks that can be added.
+# You can see the list here: https://pre-commit.com/hooks.html 
+# Adding a hook to this list will add it to all repos.
+# If you would like to add a hook to a single repo, 
+# you can create a .pre-commit-config.local.yaml. 
+# It has the same format as this file.
+repos:
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.15.0 # The GitHub action uses `latest` but that isn't supported here
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: per-repo-hooks
+        name: Repo-specific Hooks
+        # We add an extra argument because pre-commit chops off an argument. The
+        # dummy argument at the end ensures that "$@" actually contains all files
+        # that were changed in the commit.
+        entry: bash -c 'if [[ -f .pre-commit-config.local.yaml ]]; then pre-commit run --config=.pre-commit-config.local.yaml --files "$@"; fi' 'shifter'
+        language: system
