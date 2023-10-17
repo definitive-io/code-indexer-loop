@@ -1,0 +1,33 @@
+#####################################
+#       DO NOT EDIT DIRECTLY.       #
+# This file is managed by Terraform #
+#####################################
+
+on: [push]
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    name: Detect Secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout full history to make .gitleaksignore work like it does locally
+
+      - name: GitLeaks
+        uses: gacts/gitleaks@v1 # Action page: <https://github.com/gacts/gitleaks>
+
+      - name: Email security@definitive.io
+        if: ${{ failure() && github.event.number == 0 }} # Only run for push events
+        uses: licenseware/send-email-notification@v1 # Action page: <https://github.com/licenseware/send-email-notification>
+        with:
+          api-key: ${{ secrets.SENDGRID_API_KEY }}
+          subject: Secret detected in GitHub repository '${{ github.event.repository.name }}'
+          from-email: GitLeaks GitHub Action <no-reply@definitive.io>
+          to-email: security@definitive.io
+          markdown-body: |
+            Secret detected in ${{ github.event.repository.url }}. See details below:
+
+            * action: ${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}
+            * commit: ${{ github.event.head_commit.url }}
